@@ -47,7 +47,7 @@ function Task({ navigation, ...task }) {
   const { _id, title, description, important, date, completed } = task;
 
   const onPressCheckbox = () => {
-    updateStatus({ _id, status: !completed });
+    updateStatus({ _id, completed: !completed });
   };
 
   return (

@@ -42,22 +42,30 @@ export const useTasksStore = create((set, get) => ({
     // append all tasks
     set({ tasks: resp.data });
   },
-  updateTaskStatus: task =>
+  updateTaskStatus: async task => {
     // update task status (completed / not)
+
+    await api({
+      method: 'put',
+      url: `/tasks/${task._id}`,
+      data: task,
+    });
+
     set(state => {
       const tasks = [...state.tasks]; // copy the array
       const update = tasks.map(item => {
         if (item._id === task._id) {
           return {
             ...item,
-            completed: task.status,
+            completed: task.completed,
           };
         }
 
         return item;
       });
       return { tasks: update };
-    }),
+    });
+  },
   updateTask: async task => {
     // update task detail
     await api({
