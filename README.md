@@ -12,7 +12,7 @@ Simple react native to do list
  - Remove Tasks
  - Update Task
  - Group Task By Date
- - Connected to Backend API Service
+ - Connected to Backend API Service [`todo_list_be`](https://github.com/akifabubakar/todo_list_be)
 
  ### Built With
  - zustand (state management)
